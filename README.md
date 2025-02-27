@@ -35,11 +35,14 @@ Dokumentację do tego pakietu znajdziesz tutaj: <https://rspatial.github.io/terr
 
 # Materiały do kursu
 
+1. [Wprowadzenie](https://kadyb.github.io/sg2025/cwiczenia/01_Wprowadzenie.html)
+2. [Przetwarzanie danych rastrowych](https://kadyb.github.io/sg2025/cwiczenia/02_Przetwarzanie_raster.html)
+3. [Przetwarzanie danych wektorowych](https://kadyb.github.io/sg2025/cwiczenia/03_Przetwarzanie_wektor.html)
+
 # Materiały dodatkowe
 
 1. ["Geocomputation with R"](https://r.geocompx.org/) Robin Lovelace, Jakub Nowosad i Jannes Muenchow
-2. ["Spatial Data Science With Applications in R"](https://r-spatial.org/book/) Edzer Pebesma i Roger Bivand
-3. ["Spatial Data Science with R and terra"](https://rspatial.org/) Robert Hijmans i inni
+2. ["Spatial Data Science with R and terra"](https://rspatial.org/) Robert Hijmans i inni
 
 # Kontakt 
 
