@@ -3,6 +3,14 @@
 To repozytorium zawiera materiały do kursu "Skrypty geoprzetwarzania" prowadzonego
 na Uniwersytecie Adama Mickiewicza w semestrze letnim w 2025 r.
 
+Skrypty geoprzetwarzania to sekwencje zakodowanych instrukcji wykorzystywane do automatyzacji
+przetwarzania, analizy i wizualizacji danych przestrzennych. W przeciwieństwie do ręcznych analiz
+wykonywanych w oprogramowaniu GIS, skrypty zapewniają powtarzalność, skalowalność i dowolne
+dostosowanie według potrzeb, dzięki czemu są odpowiednie do przeprowadzania iteracyjnych procesów.
+Geoprzetwarzanie w R oferuje kilka istotnych zalet związanych z pełną integracją danych
+tabelarycznych i przestrzennych, zaawansowane możliwości analiz statystycznych, uczenia
+maszynowego i analiz przestrzennych oraz rozbudowane narzędzia do wizualizacji danych.
+
 # Wstęp
 
 **1. Instalacja R**
