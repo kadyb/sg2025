@@ -279,7 +279,7 @@ wykonaj następujące czynności:
 
 * sprawdź metadane pobranego rastra i wyświetl go
 * transformuj układ współrzędnych do `EPSG:2180`
-* przytnij zasięg przestrzenny o 10% z każdej strony
+* przytnij raster do zmniejszonego zasięgu przestrzennego
 * wygładź wartości używając średniej arytmetycznej w oknie ruchomym
 * oblicz statystyki rastra, tj. wartość minimalna i maksymalna, średnia
 oraz odchylenie standardowe
