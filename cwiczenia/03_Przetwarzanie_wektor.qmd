@@ -13,7 +13,8 @@ format:
         href: https://github.com/kadyb/sg2025
 ---
 
-```{r message=FALSE}
+```{r}
+#| message: false
 library("terra")
 ```
 
