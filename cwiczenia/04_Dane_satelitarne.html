@@ -3129,9 +3129,6 @@ vertical-align: -.125em;
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;terra&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package &#39;terra&#39; was built under R version 4.4.3</code></pre>
-</div>
 </div>
 <section id="wprowadzenie" class="level1">
 <h1>Wprowadzenie</h1>
@@ -3139,8 +3136,8 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="dane-satelitarne">Dane satelitarne</h2>
 <p>Dane satelitarne odgrywają kluczową rolę w systemach informacji geograficznej i wykorzystywane są w szerokim zakresie do kartowania, analizy pokrycia terenu, monitorowania zmian w środowisku, zarządzania kryzysowego czy rolnictwa precyzyjnego. Źródłem danych mogą być:</p>
 <ul>
-<li>sensory optyczne (pozyskują dane w różnych spektrach fali elektromagnetycznej, np. światło widzialne, bliska podczerwień, podczerwień krótkofalowa czy podczerwień termalna)</li>
-<li>sensory radarowe (emitują impulsy radarowe, a następnie mierzą odbitą energię. W przeciwieństwie do sensorów optycznych mogą być wykorzystywane do obrazowania powierzchni przez chmury oraz w nocy)</li>
+<li>sensory optyczne (pozyskują dane w różnych spektrach fali elektromagnetycznej, np. światło widzialne, bliska podczerwień, podczerwień krótkofalowa czy podczerwień termalna).</li>
+<li>sensory radarowe (emitują impulsy radarowe, a następnie mierzą odbitą energię. W przeciwieństwie do sensorów optycznych mogą być wykorzystywane do obrazowania powierzchni przez chmury oraz w nocy).</li>
 </ul>
 <p>W kontekście ogromnych zbiorów danych satelitarnych nie sposób pominąć zasadniczych technologii ułatwiających ich przetwarzanie:</p>
 <ul>
@@ -3164,8 +3161,8 @@ vertical-align: -.125em;
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>() <span class="ot">-&gt;</span> dane</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>dane</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.08491474 0.22831829 0.40273428 0.43923682 0.46646119 0.70879324
- [7] 0.77350090 1.11626118 1.18159919 1.24775874</code></pre>
+<pre><code> [1] 0.5523812 0.6034717 0.6419994 0.6540564 0.7189717 0.7886544 1.1437211
+ [8] 1.3426453 1.7735580 2.1543514</code></pre>
 </div>
 </div>
 </section>
@@ -3228,10 +3225,10 @@ vertical-align: -.125em;
 <p>Uwaga! Dane z Sentinela-2 znajdują się w dwóch kolekcjach, tj. <code>sentinel-2-l2a</code> (starsza) i <code>sentinel-2-c1-l2a</code> (nowsza). Aktualnie trwa aktualizacja produktów do nowszej kolekcji <code>sentinel-2-c1-l2a</code> i ta powinna być preferowana, natomiast starsza kolekcja w przyszłości nie będzie obsługiwana.</p>
 <p>Teraz wyszukajmy dostępne produkty w ramach kolekcji <code>sentinel-2-c1-l2a</code>. Do wyszukiwania danych służy funkcja <code>stac_search()</code> i umożliwia ona zdefiniowanie takich parametrów jak:</p>
 <ul>
-<li>kolekcja (<code>collections</code>)</li>
-<li>zakres przestrzenny w układzie WGS 84 (<code>bbox</code>)</li>
-<li>interwał czasowy w standardzie <a href="https://www.rfc-editor.org/rfc/rfc3339">RFC 3339</a> (<code>datetime</code>)</li>
-<li>maksymalna liczba produktów (<code>limit</code>)</li>
+<li>kolekcja (<code>collections</code>),</li>
+<li>zakres przestrzenny w układzie WGS 84 (<code>bbox</code>),</li>
+<li>interwał czasowy w standardzie <a href="https://www.rfc-editor.org/rfc/rfc3339">RFC 3339</a> (<code>datetime</code>),</li>
+<li>maksymalna liczba produktów (<code>limit</code>).</li>
 </ul>
 <p>W tym przypadku żądanie musimy wysłać za pomocą metody POST.</p>
 <div class="cell">
@@ -3308,10 +3305,10 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 </div>
 <p>Po dokonaniu selekcji scen, możemy przystąpić do ich pobrania. Zasadniczo, można to wykonać na kilka różnych sposobów używając:</p>
 <ul>
-<li>funkcji <code>assets_download()</code> z pakietu <strong>rstac</strong></li>
-<li>funkcji <code>download.file()</code> wbudowanej w <strong>R</strong></li>
-<li>modułu <code>/vsicurl/</code> dostępnego w pakietach obsługujących GDAL, np. <strong>terra</strong></li>
-<li>narzędzi GDAL (np. <a href="https://gdal.org/programs/gdalwarp.html">gdalwarp</a>) dostępnych m. in. w powłoce <a href="https://www.osgeo.org/projects/osgeo4w/">OSGeo4W</a> na Windows</li>
+<li>funkcji <code>assets_download()</code> z pakietu <strong>rstac</strong>,</li>
+<li>funkcji <code>download.file()</code> wbudowanej w <strong>R</strong>,</li>
+<li>modułu <code>/vsicurl/</code> dostępnego w pakietach obsługujących GDAL, np. <strong>terra</strong>,</li>
+<li>narzędzi GDAL (np. <a href="https://gdal.org/programs/gdalwarp.html">gdalwarp</a>) dostępnych m. in. w powłoce <a href="https://www.osgeo.org/projects/osgeo4w/">OSGeo4W</a> na Windows.</li>
 </ul>
 <section id="assets_download" class="level2">
 <h2 class="anchored" data-anchor-id="assets_download">assets_download()</h2>
@@ -3407,11 +3404,12 @@ max values  : 18640, 17728, 17104 </code></pre>
 <h1>Zadanie</h1>
 <p><strong>6.</strong> Pobierz dowolną scenę satelitarną z Sentinela-2 o niskim zachmurzeniu (maksymalnie 20%) i następnie:</p>
 <ul>
-<li>sprawdź metadane rastrów</li>
-<li>przygotuj wizualizację RGB</li>
-<li>pobierz losową próbę 10 tys. punktów dla kanału niebieskiego, zielonego, czerwonego oraz bliskiej podczerwieni i zaprezentuj statystyki opisowe oraz porównaj histogramy</li>
-<li>dodatkowo dla kanału czerwonego oraz bliskiej podczerwieni wykonaj wykres rozrzutu oraz oblicz współczynnik korelacji Pearsona</li>
-<li>oblicz znormalizowany różnicowy wskaźnik wegetacji (<a href="https://gisgeography.com/ndvi-normalized-difference-vegetation-index/">NDVI</a>) i przygotuj wizualizację</li>
+<li>sprawdź metadane rastrów,</li>
+<li>przygotuj wizualizację w naturalnych barwach,</li>
+<li>pobierz losową próbę 10 tys. punktów dla kanału niebieskiego, zielonego, czerwonego oraz bliskiej podczerwieni i zaprezentuj statystyki opisowe (ustaw ziarno losowości oraz zwróć uwagę na brakujące wartości <code>NA</code>),</li>
+<li>zestaw cztery histogramy na jednym panelu,</li>
+<li>wykonaj wykres rozrzutu dla kanału czerwonego oraz bliskiej podczerwieni z zaznaczoną linią <code>x = y</code> i ustawioną przezroczystością punktów, następnie oblicz współczynnik korelacji Pearsona,</li>
+<li>oblicz znormalizowany różnicowy wskaźnik wegetacji (<a href="https://gisgeography.com/ndvi-normalized-difference-vegetation-index/">NDVI</a>) i zaprezentuj go na mapie.</li>
 </ul>
 </section>
 

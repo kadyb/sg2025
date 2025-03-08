@@ -29,10 +29,10 @@ rolnictwa precyzyjnego. Źródłem danych mogą być:
 
 * sensory optyczne (pozyskują dane w różnych spektrach fali elektromagnetycznej,
 np. światło widzialne, bliska podczerwień, podczerwień krótkofalowa czy
-podczerwień termalna)
+podczerwień termalna).
 * sensory radarowe (emitują impulsy radarowe, a następnie mierzą odbitą energię.
 W przeciwieństwie do sensorów optycznych mogą być wykorzystywane do obrazowania
-powierzchni przez chmury oraz w nocy)
+powierzchni przez chmury oraz w nocy).
 
 W kontekście ogromnych zbiorów danych satelitarnych nie sposób pominąć
 zasadniczych technologii ułatwiających ich przetwarzanie:
@@ -148,11 +148,11 @@ Teraz wyszukajmy dostępne produkty w ramach kolekcji `sentinel-2-c1-l2a`. Do
 wyszukiwania danych służy funkcja `stac_search()` i umożliwia ona zdefiniowanie
 takich parametrów jak:
 
-- kolekcja (`collections`)
-- zakres przestrzenny w układzie WGS 84 (`bbox`)
+- kolekcja (`collections`),
+- zakres przestrzenny w układzie WGS 84 (`bbox`),
 - interwał czasowy w standardzie [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339)
-(`datetime`)
-- maksymalna liczba produktów (`limit`)
+(`datetime`),
+- maksymalna liczba produktów (`limit`).
 
 W tym przypadku żądanie musimy wysłać za pomocą metody POST.
 
@@ -218,12 +218,12 @@ plot(sf::st_geometry(df)[1], main = "Zasięg sceny", axes = TRUE)
 Po dokonaniu selekcji scen, możemy przystąpić do ich pobrania. Zasadniczo,
 można to wykonać na kilka różnych sposobów używając:
 
-- funkcji `assets_download()` z pakietu **rstac**
-- funkcji `download.file()` wbudowanej w **R**
-- modułu `/vsicurl/` dostępnego w pakietach obsługujących GDAL, np. **terra**
+- funkcji `assets_download()` z pakietu **rstac**,
+- funkcji `download.file()` wbudowanej w **R**,
+- modułu `/vsicurl/` dostępnego w pakietach obsługujących GDAL, np. **terra**,
 - narzędzi GDAL (np. [gdalwarp](https://gdal.org/programs/gdalwarp.html))
 dostępnych m. in. w powłoce [OSGeo4W](https://www.osgeo.org/projects/osgeo4w/)
-na Windows
+na Windows.
 
 ## assets_download()
 
@@ -328,13 +328,15 @@ napisanym przez Michael Mahoney.
 **6.** Pobierz dowolną scenę satelitarną z Sentinela-2 o niskim zachmurzeniu
 (maksymalnie 20%) i następnie:
 
-- sprawdź metadane rastrów
-- przygotuj wizualizację RGB
+- sprawdź metadane rastrów,
+- przygotuj wizualizację w naturalnych barwach,
 - pobierz losową próbę 10 tys. punktów dla kanału niebieskiego, zielonego,
 czerwonego oraz bliskiej podczerwieni i zaprezentuj statystyki opisowe
-oraz porównaj histogramy
-- dodatkowo dla kanału czerwonego oraz bliskiej podczerwieni wykonaj
-wykres rozrzutu oraz oblicz współczynnik korelacji Pearsona
+(ustaw ziarno losowości oraz zwróć uwagę na brakujące wartości `NA`),
+- zestaw cztery histogramy na jednym panelu,
+- wykonaj wykres rozrzutu dla kanału czerwonego oraz bliskiej podczerwieni z
+zaznaczoną linią `x = y` i ustawioną przezroczystością punktów, następnie
+oblicz współczynnik korelacji Pearsona,
 - oblicz znormalizowany różnicowy wskaźnik wegetacji
 ([NDVI](https://gisgeography.com/ndvi-normalized-difference-vegetation-index/))
-i przygotuj wizualizację
+i zaprezentuj go na mapie.
