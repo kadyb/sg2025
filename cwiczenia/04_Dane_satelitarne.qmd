@@ -39,7 +39,7 @@ zasadniczych technologii ułatwiających ich przetwarzanie:
 
 * **S**patio**T**emporal **A**sset **C**atalogs -- ustandaryzowany sposób
 organizowania i opisywania zbiorów danych przestrzennych ułatwiający ich
-wyszukiwanie oraz dostęp (https://stacspec.org).
+wyszukiwanie oraz dostęp (<https://stacspec.org>).
 * *Byte serving* (*range requests*) -- technika używana w protokole HTTP do
 przesyłania tylko określonej części pliku z serwera do klienta. Jest to
 szczególnie przydatne w przypadku dużych plików, gdzie pobieranie całego pliku
@@ -51,9 +51,9 @@ wymaganych zakresów danych bez przesyłania niepotrzebnych części.
   ale jest optymalizowany pod kątem wydajnego dostępu i przetwarzania w chmurze.
   Oprócz *byte serving*, stosowane są podglądy (*overviews*), czyli warstwy rastra
   w niższej rozdzielczości, umożliwiając jego renderowanie bez konieczności
-  dostępu do danych w pełnej rozdzielczości (https://www.cogeo.org/).
+  dostępu do danych w pełnej rozdzielczości (<https://www.cogeo.org/>).
   * **V**irtual **F**ile **S**ystems -- umożliwia jednolity dostęp do różnych
-  typów przechowywania danych (https://gdal.org/user/virtual_file_systems.html).
+  typów przechowywania danych (<https://gdal.org/user/virtual_file_systems.html>).
   Jednym z modułów jest `vsicurl`, który zapewnia bezpośredni dostęp do zdalnych
   plików przez protokoły HTTP(S) i FTP bez konieczności pełnego pobierania,
   tym samym minimalizując transfer danych.

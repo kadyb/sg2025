@@ -3129,6 +3129,9 @@ vertical-align: -.125em;
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;terra&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;terra&#39; was built under R version 4.4.3</code></pre>
+</div>
 </div>
 <section id="wprowadzenie" class="level1">
 <h1>Wprowadzenie</h1>
@@ -3141,11 +3144,11 @@ vertical-align: -.125em;
 </ul>
 <p>W kontekście ogromnych zbiorów danych satelitarnych nie sposób pominąć zasadniczych technologii ułatwiających ich przetwarzanie:</p>
 <ul>
-<li><strong>S</strong>patio<strong>T</strong>emporal <strong>A</strong>sset <strong>C</strong>atalogs – ustandaryzowany sposób organizowania i opisywania zbiorów danych przestrzennych ułatwiający ich wyszukiwanie oraz dostęp (https://stacspec.org).</li>
+<li><strong>S</strong>patio<strong>T</strong>emporal <strong>A</strong>sset <strong>C</strong>atalogs – ustandaryzowany sposób organizowania i opisywania zbiorów danych przestrzennych ułatwiający ich wyszukiwanie oraz dostęp (<a href="https://stacspec.org" class="uri">https://stacspec.org</a>).</li>
 <li><em>Byte serving</em> (<em>range requests</em>) – technika używana w protokole HTTP do przesyłania tylko określonej części pliku z serwera do klienta. Jest to szczególnie przydatne w przypadku dużych plików, gdzie pobieranie całego pliku może być nieefektywne lub niepotrzebne. Ta technika umożliwia wydajny dostęp do wymaganych zakresów danych bez przesyłania niepotrzebnych części.
 <ul>
-<li><strong>C</strong>loud <strong>O</strong>ptimized <strong>G</strong>eotiff – specjalny format przechowywania danych geoprzestrzennych (takich jak zdjęcia satelitarne) zaprojektowany z myślą o środowiskach chmurowych. Opiera się na standardowym formacie Geotiff, ale jest optymalizowany pod kątem wydajnego dostępu i przetwarzania w chmurze. Oprócz <em>byte serving</em>, stosowane są podglądy (<em>overviews</em>), czyli warstwy rastra w niższej rozdzielczości, umożliwiając jego renderowanie bez konieczności dostępu do danych w pełnej rozdzielczości (https://www.cogeo.org/).</li>
-<li><strong>V</strong>irtual <strong>F</strong>ile <strong>S</strong>ystems – umożliwia jednolity dostęp do różnych typów przechowywania danych (https://gdal.org/user/virtual_file_systems.html). Jednym z modułów jest <code>vsicurl</code>, który zapewnia bezpośredni dostęp do zdalnych plików przez protokoły HTTP(S) i FTP bez konieczności pełnego pobierania, tym samym minimalizując transfer danych.</li>
+<li><strong>C</strong>loud <strong>O</strong>ptimized <strong>G</strong>eotiff – specjalny format przechowywania danych geoprzestrzennych (takich jak zdjęcia satelitarne) zaprojektowany z myślą o środowiskach chmurowych. Opiera się na standardowym formacie Geotiff, ale jest optymalizowany pod kątem wydajnego dostępu i przetwarzania w chmurze. Oprócz <em>byte serving</em>, stosowane są podglądy (<em>overviews</em>), czyli warstwy rastra w niższej rozdzielczości, umożliwiając jego renderowanie bez konieczności dostępu do danych w pełnej rozdzielczości (<a href="https://www.cogeo.org/" class="uri">https://www.cogeo.org/</a>).</li>
+<li><strong>V</strong>irtual <strong>F</strong>ile <strong>S</strong>ystems – umożliwia jednolity dostęp do różnych typów przechowywania danych (<a href="https://gdal.org/user/virtual_file_systems.html" class="uri">https://gdal.org/user/virtual_file_systems.html</a>). Jednym z modułów jest <code>vsicurl</code>, który zapewnia bezpośredni dostęp do zdalnych plików przez protokoły HTTP(S) i FTP bez konieczności pełnego pobierania, tym samym minimalizując transfer danych.</li>
 </ul></li>
 </ul>
 </section>
@@ -3155,14 +3158,14 @@ vertical-align: -.125em;
 <p>W <strong>R</strong> wbudowanym operatorem przypływu jest <code>|&gt;</code>. Do jego zapisu można wykorzystać skrót klawiszowy <code>CTRL + SHIFT + M</code>, jednak wymaga to zaznaczenia opcji <code>Use native pipe operator</code> (zakłada <code>Code &gt; Editing</code>) w <strong>RStudio</strong>.</p>
 <p>Przykładowo, możemy wylosować 10 liczb z rozkładu normalnego, następnie obliczyć wartość bezwzględną, posortować w kolejności rosnącej i finalnie nadpisać obiekt <code>dane</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dane <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dane <span class="sc">|&gt;</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abs</span>() <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>() <span class="ot">-&gt;</span> dane</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>dane</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dane <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dane <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abs</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>() <span class="ot">-&gt;</span> dane</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>dane</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.08321878 0.10397983 0.34689212 0.38153960 0.45970376 1.06609670
- [7] 1.29812769 1.64744651 1.79842494 2.21823142</code></pre>
+<pre><code> [1] 0.08491474 0.22831829 0.40273428 0.43923682 0.46646119 0.70879324
+ [7] 0.77350090 1.11626118 1.18159919 1.24775874</code></pre>
 </div>
 </div>
 </section>
@@ -3171,12 +3174,12 @@ vertical-align: -.125em;
 <h1>Pozyskiwanie danych</h1>
 <p>Do obsługi katalogów STAC w <strong>R</strong> służy pakiet <strong>rstac</strong>, który umożliwia wyszukiwanie i pobieranie danych zgodnie z tym standardem.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;rstac&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;rstac&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>W pierwszym kroku należy zdefiniować źródło danych używając funkcji <code>stac()</code>. Wykaz źródeł można znaleźć na <a href="https://stacindex.org/">STAC Index</a>. W naszym przykładzie wykorzystamy usługę <a href="https://element84.com/earth-search/">Earth Search</a>, która dostarcza m. in. zdjęcia satelitarne z Landsata oraz Sentinela.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stac_source <span class="ot">=</span> <span class="fu">stac</span>(<span class="st">&quot;https://earth-search.aws.element84.com/v1&quot;</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>stac_source</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>stac_source <span class="ot">=</span> <span class="fu">stac</span>(<span class="st">&quot;https://earth-search.aws.element84.com/v1&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>stac_source</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###rstac_query
 - url: https://earth-search.aws.element84.com/v1/
@@ -3192,10 +3195,10 @@ vertical-align: -.125em;
 <p>Wybór metody zależy od serwera.</p>
 <p>Spróbujmy teraz odpytać serwer jakie zbiory danych znajdują się na nim.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>kolekcje <span class="ot">=</span> stac_source <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collections</span>() <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_request</span>()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>kolekcje</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>kolekcje <span class="ot">=</span> stac_source <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collections</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_request</span>()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>kolekcje</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Collections
 - collections (9 item(s)):
@@ -3214,8 +3217,8 @@ vertical-align: -.125em;
 <p>W odpowiedzi otrzymaliśmy obiekt, który jest wielopoziomową listą list. Można samodzielnie sprawdzić jego strukturę używając funkcji <code>View()</code>. Eksploracja takich obiektów jest bardziej skomplikowana w porównaniu do obiektów jednowymiarowych (np. wektorów). Przykładowo, jeżeli chcemy sprawdzić pozostałe dostępne zbiory danych, to należy wykorzystać funkcje <code>lapply()</code>, która wykonuje iterację po każdym elemencie danych wejściowych (w tym przypadku listy), stosując przy tym podaną funkcję. Jako wynika zwracana jest lista, którą następnie można uprościć do wektora używając funkcji <code>unlist()</code>.</p>
 <p>Dodatkowo, dla uproszczenia możemy zastosować funkcję lambda (inaczej funkcję anonimową). Pozwala to zamienić słowo kluczowe <code>function()</code> na znak <code>\()</code>, np. zamiast <code>lapply(lista, function(x) x^2)</code> będzie <code>lapply(lista, \(x) x^2)</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>kolekcje_nazwy <span class="ot">=</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(kolekcje<span class="sc">$</span>collections, \(x) x<span class="sc">$</span>id))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>kolekcje_nazwy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>kolekcje_nazwy <span class="ot">=</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(kolekcje<span class="sc">$</span>collections, \(x) x<span class="sc">$</span>id))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>kolekcje_nazwy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;sentinel-2-pre-c1-l2a&quot; &quot;cop-dem-glo-30&quot;        &quot;naip&quot;                 
 [4] &quot;cop-dem-glo-90&quot;        &quot;landsat-c2-l2&quot;         &quot;sentinel-2-l2a&quot;       
@@ -3232,14 +3235,14 @@ vertical-align: -.125em;
 </ul>
 <p>W tym przypadku żądanie musimy wysłać za pomocą metody POST.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>stac_source <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stac_search</span>(</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">collections =</span> <span class="st">&quot;sentinel-2-c1-l2a&quot;</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bbox =</span> <span class="fu">c</span>(<span class="fl">22.5</span>, <span class="fl">51.1</span>, <span class="fl">22.6</span>, <span class="fl">51.2</span>), <span class="co"># xmin, ymin, xmax, ymax (WGS84)</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">datetime =</span> <span class="st">&quot;2023-01-01T00:00:00Z/2023-12-31T00:00:00Z&quot;</span>, <span class="co"># RFC 3339</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">limit =</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">post_request</span>() <span class="ot">-&gt;</span> obrazy</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>obrazy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>stac_source <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stac_search</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">collections =</span> <span class="st">&quot;sentinel-2-c1-l2a&quot;</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bbox =</span> <span class="fu">c</span>(<span class="fl">22.5</span>, <span class="fl">51.1</span>, <span class="fl">22.6</span>, <span class="fl">51.2</span>), <span class="co"># xmin, ymin, xmax, ymax (WGS84)</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">datetime =</span> <span class="st">&quot;2023-01-01T00:00:00Z/2023-12-31T00:00:00Z&quot;</span>, <span class="co"># RFC 3339</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">limit =</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">post_request</span>() <span class="ot">-&gt;</span> obrazy</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>obrazy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Items
 - matched feature(s): 288
@@ -3257,8 +3260,8 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 </div>
 <p>Zostało znalezionych 288 produktów, które spełniają zadane warunki. Możemy zobaczyć jakie warstwy (<em>assets</em>) i atrybuty (<em>fields</em>) są powiązane. Sprawdźmy przykładowe cechy produktu (<em>properties</em>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pierwsze 15 cech</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(obrazy<span class="sc">$</span>features[[<span class="dv">1</span>]]<span class="sc">$</span>properties)[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pierwsze 15 cech</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(obrazy<span class="sc">$</span>features[[<span class="dv">1</span>]]<span class="sc">$</span>properties)[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] &quot;created&quot;              &quot;platform&quot;             &quot;constellation&quot;       
  [4] &quot;instruments&quot;          &quot;eo:cloud_cover&quot;       &quot;proj:epsg&quot;           
@@ -3270,31 +3273,31 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 <p>Mamy dostęp do 44 cech, które opisują produkt, m. in. data pozyskania, nazwa platformy satelitarnej, procentowe zachmurzenie sceny, układ współrzędnych, ID sceny, itd.</p>
 <p>Sprawdźmy zachmurzenie wyszukanych scen. Określone jest one w atrybucie <code>eo:cloud_cover</code>. W tym celu ponownie musimy wykorzystać funkcję <code>lapply()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(<span class="fu">lapply</span>(obrazy<span class="sc">$</span>features, \(x) x<span class="sc">$</span>properties<span class="sc">$</span><span class="st">&quot;eo:cloud_cover&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(<span class="fu">lapply</span>(obrazy<span class="sc">$</span>features, \(x) x<span class="sc">$</span>properties<span class="sc">$</span><span class="st">&quot;eo:cloud_cover&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 71.93396 68.93441 83.81743 94.01084 99.99993</code></pre>
 </div>
 </div>
 <p>Wyszukane sceny charakteryzują się wysokim zachmurzeniem w związku z czym ich przydatność jest ograniczona. Oczywiście możemy dokonać prostej filtracji modyfikując nasze poprzednie zapytanie. Do filtrowania przeznaczona jest funkcja <code>ext_query()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>stac_source <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stac_search</span>(</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">collections =</span> <span class="st">&quot;sentinel-2-c1-l2a&quot;</span>,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bbox =</span> <span class="fu">c</span>(<span class="fl">22.5</span>, <span class="fl">51.1</span>, <span class="fl">22.6</span>, <span class="fl">51.2</span>),</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">datetime =</span> <span class="st">&quot;2023-01-01T00:00:00Z/2023-12-31T00:00:00Z&quot;</span>,</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">limit =</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ext_query</span>(<span class="st">`</span><span class="at">eo:cloud_cover</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">post_request</span>() <span class="ot">-&gt;</span> obrazy</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(<span class="fu">lapply</span>(obrazy<span class="sc">$</span>features, \(x) x<span class="sc">$</span>properties<span class="sc">$</span><span class="st">&quot;eo:cloud_cover&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>stac_source <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stac_search</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">collections =</span> <span class="st">&quot;sentinel-2-c1-l2a&quot;</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bbox =</span> <span class="fu">c</span>(<span class="fl">22.5</span>, <span class="fl">51.1</span>, <span class="fl">22.6</span>, <span class="fl">51.2</span>),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">datetime =</span> <span class="st">&quot;2023-01-01T00:00:00Z/2023-12-31T00:00:00Z&quot;</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">limit =</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ext_query</span>(<span class="st">`</span><span class="at">eo:cloud_cover</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">post_request</span>() <span class="ot">-&gt;</span> obrazy</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(<span class="fu">lapply</span>(obrazy<span class="sc">$</span>features, \(x) x<span class="sc">$</span>properties<span class="sc">$</span><span class="st">&quot;eo:cloud_cover&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.067071 0.043523 1.478151 0.678711 0.000757</code></pre>
 </div>
 </div>
 <p>Alternatywnie, zamiast używać wielopoziomowych list, możemy dokonać konwersji obiektu <code>obrazy</code> do “przestrzennej ramki danych” (<em>simple features data frame</em>) za pomocą funkcji <code>items_as_sf()</code>. Jednakże, na ten moment jest ona eksperymentalna i mogą pojawić się niespodziewane problemy.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">items_as_sf</span>(obrazy)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sf<span class="sc">::</span><span class="fu">st_geometry</span>(df)[<span class="dv">1</span>], <span class="at">main =</span> <span class="st">&quot;Zasięg sceny&quot;</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">items_as_sf</span>(obrazy)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sf<span class="sc">::</span><span class="fu">st_geometry</span>(df)[<span class="dv">1</span>], <span class="at">main =</span> <span class="st">&quot;Zasięg sceny&quot;</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3314,21 +3317,21 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 <h2 class="anchored" data-anchor-id="assets_download">assets_download()</h2>
 <p>W funkcji <code>assets_download()</code> możemy zdefiniować, które warstwy chcemy pobrać (argument <code>asset_names</code>). Jednak ma ona pewien mankament związany z dość skomplikowanym zapisem ścieżek do pobranych plików wynikający ze struktury katalogów STAC.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>obrazy <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">items_select</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assets_download</span>(<span class="at">asset_names =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>obrazy <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">items_select</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assets_download</span>(<span class="at">asset_names =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Sceny satelitarne zazwyczaj zawierają niskorozdzielcze miniaturki w kompozycji RGB. W przypadku danych z Sentinela-2 zapisane są one jako <code>thumbnail.jpg</code>. Jeśli chcemy szybko podejrzeć dane, to możemy odwołać się do tej warstwy i pozyskać do niej odnośnik przy pomocy funkcji <code>assets_url()</code>. Do wczytania pliku .jpg wymagany jest dodatkowy pakiet, np. <strong>imager</strong>, który posiada funkcję <code>load.image()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;imager&quot;</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)) <span class="co"># usuń marginesy</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>obrazy <span class="sc">|&gt;</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">items_select</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assets_select</span>(<span class="at">asset_names =</span> <span class="st">&quot;thumbnail&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assets_url</span>() <span class="sc">|&gt;</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">load.image</span>() <span class="sc">|&gt;</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="at">axes =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;imager&quot;</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)) <span class="co"># usuń marginesy</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>obrazy <span class="sc">|&gt;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">items_select</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assets_select</span>(<span class="at">asset_names =</span> <span class="st">&quot;thumbnail&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assets_url</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">load.image</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="at">axes =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3342,11 +3345,11 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 <h2 class="anchored" data-anchor-id="download.file">download.file()</h2>
 <p>Tak jak w powyższym przypadku, możliwe jest pozyskanie odnośników do pozostałych warstw i pobranie danych przy użyciu funkcji <code>download.file()</code>, wymagającej wskazania odnośników, z których zostaną pobrane dane oraz ścieżek zapisu.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>obrazy <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">items_select</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">assets_select</span>(<span class="at">asset_names =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">assets_url</span>() <span class="ot">-&gt;</span> urls</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>urls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>obrazy <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">items_select</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">assets_select</span>(<span class="at">asset_names =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">assets_url</span>() <span class="ot">-&gt;</span> urls</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>urls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/34/U/EB/2023/11/S2A_T34UEB_20231107T093339_L2A/B02.tif&quot;
 [2] &quot;https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/34/U/EB/2023/11/S2A_T34UEB_20231107T093339_L2A/B03.tif&quot;
@@ -3355,23 +3358,23 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 </div>
 <p>Utwórzmy nowy folder o nazwie <code>sentinel</code> używając funkcji <code>dir.create()</code>. Do stworzenia ścieżek zapisu należy podać nazwę pliku wraz z rozszerzeniem. W tym celu można zastosować funkcję <code>basename()</code> do wyodrębnienia tych nazw z odnośników. Następnie należy połączyć ścieżkę do katalogu ze ścieżką do pliku wykorzystując funkcję <code>file.path()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;sentinel&quot;</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>rastry <span class="ot">=</span> <span class="fu">file.path</span>(<span class="st">&quot;sentinel&quot;</span>, <span class="fu">basename</span>(sentinel))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;sentinel&quot;</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>rastry <span class="ot">=</span> <span class="fu">file.path</span>(<span class="st">&quot;sentinel&quot;</span>, <span class="fu">basename</span>(sentinel))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finalnie, zastosujemy pętlę, która pobierze wszystkie pliki do lokalizacji określonej przez nas.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(sentinel)) {</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(sentinel[i], rastry[i], <span class="at">mode =</span> <span class="st">&quot;wb&quot;</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(sentinel)) {</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(sentinel[i], rastry[i], <span class="at">mode =</span> <span class="st">&quot;wb&quot;</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="vsicurl" class="level2">
 <h2 class="anchored" data-anchor-id="vsicurl">/vsicurl/</h2>
 <p>Ostatnim sposobem jest wykorzystanie modułu <code>/vsicurl/</code> pochodzącego z GDAL bez potrzeby pobierania całego zbioru danych. Działanie jest proste – wystarczy dodać przedrostek <code>/vsicurl/</code> do odnośników z rastrami używając funkcji <code>paste0()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>urls <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;/vsicurl/&quot;</span>, urls)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">=</span> <span class="fu">rast</span>(urls)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>urls <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;/vsicurl/&quot;</span>, urls)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">=</span> <span class="fu">rast</span>(urls)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class       : SpatRaster 
 dimensions  : 10980, 10980, 3  (nrow, ncol, nlyr)
@@ -3388,7 +3391,7 @@ max values  : 18640, 17728, 17104 </code></pre>
 </div>
 <p>Na końcu możemy przygotować kompozycję w świetle widzialnym używając funkcji <code>plotRGB()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRGB</span>(r, <span class="at">r =</span> <span class="dv">3</span>, <span class="at">g =</span> <span class="dv">2</span>, <span class="at">b =</span> <span class="dv">1</span>, <span class="at">stretch =</span> <span class="st">&quot;lin&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRGB</span>(r, <span class="at">r =</span> <span class="dv">3</span>, <span class="at">g =</span> <span class="dv">2</span>, <span class="at">b =</span> <span class="dv">1</span>, <span class="at">stretch =</span> <span class="st">&quot;lin&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
