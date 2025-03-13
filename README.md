@@ -47,6 +47,7 @@ Dokumentację do tego pakietu znajdziesz tutaj: <https://rspatial.github.io/terr
 2. [Przetwarzanie danych rastrowych](https://kadyb.github.io/sg2025/cwiczenia/02_Przetwarzanie_raster.html)
 3. [Przetwarzanie danych wektorowych](https://kadyb.github.io/sg2025/cwiczenia/03_Przetwarzanie_wektor.html)
 4. [Dostęp do danych satelitarnych](https://kadyb.github.io/sg2025/cwiczenia/04_Dane_satelitarne.html)
+5. [Klasteryzacja danych](https://kadyb.github.io/sg2025/cwiczenia/05_Klasteryzacja.html)
 
 # Materiały dodatkowe
 
