@@ -15,7 +15,7 @@ maszynowego i analiz przestrzennych oraz rozbudowane narzędzia do wizualizacji 
 
 **1. Instalacja R**
 
-Interpreter języka **R** można pobrać dla [Windows](https://cloud.r-project.org/bin/windows/base/R-4.4.2-win.exe),
+Interpreter języka **R** można pobrać dla [Windows](https://cloud.r-project.org/bin/windows/base/),
 [MacOS](https://cran.r-project.org/bin/macosx/) oraz [Linux](https://cloud.r-project.org/bin/linux/).
 
 **2. Instalacja RStudio**
