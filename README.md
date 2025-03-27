@@ -49,6 +49,7 @@ Dokumentację do tego pakietu znajdziesz tutaj: <https://rspatial.github.io/terr
 4. [Dostęp do danych satelitarnych](https://kadyb.github.io/sg2025/cwiczenia/04_Dane_satelitarne.html)
 5. [Klasteryzacja danych](https://kadyb.github.io/sg2025/cwiczenia/05_Klasteryzacja.html)
 6. [Klasyfikacja danych](https://kadyb.github.io/sg2025/cwiczenia/06_Klasyfikacja.html)
+7. [Analiza wieloczasowa](https://kadyb.github.io/sg2025/cwiczenia/07_Analiza_wieloczasowa.html)
 
 # Materiały dodatkowe
 
