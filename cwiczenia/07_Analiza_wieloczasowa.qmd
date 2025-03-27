@@ -1,0 +1,23 @@
+---
+title: "Skrypty geoprzetwarzania"
+subtitle: "Analiza wieloczasowa"
+author: "Krzysztof Dyba"
+format:
+  html:
+    toc: true
+    toc-title: " "
+    embed-resources: true
+    code-links:
+      - text: Repozytorium
+        icon: github
+        href: https://github.com/kadyb/sg2025
+---
+
+# Zadanie
+
+**9.** Wybierz dwa obiekty (np. zbiornik wodny i las) i dokonaj analizy
+zmienności dwóch wybranych wskaźników spektralnych (np. NDVI, NDMI) w ciągu
+roku. Obiekty muszą być widoczne, więc sceny powinny posiadać stosunkowo
+niskie zachmurzenie. Wyniki zaprezentuj na wykresach liniowych. Dodatkowo,
+można przygotować mapy przedstawiające przestrzenną zmienność (pamiętaj o 
+jednakowej skali kolorów przy porównywaniu).
