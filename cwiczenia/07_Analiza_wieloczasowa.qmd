@@ -18,6 +18,39 @@ format:
 **9.** Wybierz dwa obiekty (np. zbiornik wodny i las) i dokonaj analizy
 zmienności wybranego wskaźnika spektralnego (np. NDVI) w ciągu roku. Obiekty
 muszą być widoczne, więc sceny powinny posiadać stosunkowo niskie zachmurzenie.
-Wyniki zaprezentuj na wykresach liniowych. Dodatkowo, można przygotować mapy
-przedstawiające przestrzenną zmienność (pamiętaj o jednakowej skali kolorów
-przy porównywaniu).
+Na kompozycji RGB zaznacz lokalizację obiektów, które wybrałeś. Wyniki analizy
+zaprezentuj na wykresie liniowym. Dodatkowo, można przygotować mapy przedstawiające
+przestrzenną zmienność (pamiętaj o jednakowej skali kolorów przy porównywaniu).
+Przygotuj raport w Quarto.
+
+Procedura składa się z następujących etapów:
+
+1. Pozyskanie danych satelitarnych z katalogu STAC dla wybranego obszaru
+oraz przedziału czasowego. Uwzględnij niskie zachmurzenie.
+2. Wybranie identyfikatora unikalnej sceny, która reprezentuje stały określony
+obszar (atrybut `grid:code`).
+3. Selekcja niezbędnych kanałów spektralnych do obliczenia wskaźnika spektralnego.
+Upewnij się, że są ustawione w odpowiedniej kolejności!
+4. Pozyskanie wszystkich adresów URL do wczytania wylistowanych scen z uwzględnieniem
+protokołu GDAL `/vsicurl/`.
+5. Pogrupowanie scen według ich identyfikatora. W rezultacie powinna zostać
+stworzona lista, która będzie zawierała unikalne sceny na podstawie daty, a
+każda scena będzie miała przypisane odpowiednie kanały spektralne. Pamiętaj
+posortować sceny według daty!
+6. Określenie mniejszego zasięgu przestrzennego (obiekt klasy `SpatExtent`) i
+wykorzystanie go w dalszej analizie. Uprzednio sprawdź, w jakim układzie
+przestrzennym są sceny.
+7. Stworzenie rastra czterowymiarowego, w którym trzecim wymiarem są kanały
+spektralne, a czwartym czas. W tym celu wykorzystaj funkcje `sds()` oraz
+`lapply()`.
+8. Obliczenie wybranego wskaźnika spektralnego dla każdej daty. Najpierw
+zdefiniuj funkcję, która posłuży do jego wyliczenia. Następnie, wykorzystaj
+ją w funkcji `lapp()`, aby dokonać obliczenia na kanałach w jednym rastrze.
+Obliczenia należy powtórzyć dla każdego terminu, więc należy wykorzystać
+również funkcję `lapply()` na obiekcie klasy `SpatRasterDataset`. Po tym kroku
+powinniśmy otrzymać raster trójwymiarowy, gdzie trzecim wymiarem jest czas
+(nie ma już różnych kanałów, tylko wyliczony wskaźnik).
+9. Pobranie wartości wskaźnika dla określonych obiektów używając funkcji `extract()`.
+Wartości można pobrać dla punktu lub poligonu.
+10. Stworzenie wykresu liniowego zmienności wskaźnika w czasie. Najlepiej będzie
+wykorzystać w tym celu bibliotekę `ggplot2`.

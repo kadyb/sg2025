@@ -3084,7 +3084,20 @@ vertical-align: -.125em;
 
 <section id="zadanie" class="level1">
 <h1>Zadanie</h1>
-<p><strong>9.</strong> Wybierz dwa obiekty (np. zbiornik wodny i las) i dokonaj analizy zmienności wybranego wskaźnika spektralnego (np. NDVI) w ciągu roku. Obiekty muszą być widoczne, więc sceny powinny posiadać stosunkowo niskie zachmurzenie. Wyniki zaprezentuj na wykresach liniowych. Dodatkowo, można przygotować mapy przedstawiające przestrzenną zmienność (pamiętaj o jednakowej skali kolorów przy porównywaniu).</p>
+<p><strong>9.</strong> Wybierz dwa obiekty (np. zbiornik wodny i las) i dokonaj analizy zmienności wybranego wskaźnika spektralnego (np. NDVI) w ciągu roku. Obiekty muszą być widoczne, więc sceny powinny posiadać stosunkowo niskie zachmurzenie. Na kompozycji RGB zaznacz lokalizację obiektów, które wybrałeś. Wyniki analizy zaprezentuj na wykresie liniowym. Dodatkowo, można przygotować mapy przedstawiające przestrzenną zmienność (pamiętaj o jednakowej skali kolorów przy porównywaniu). Przygotuj raport w Quarto.</p>
+<p>Procedura składa się z następujących etapów:</p>
+<ol type="1">
+<li>Pozyskanie danych satelitarnych z katalogu STAC dla wybranego obszaru oraz przedziału czasowego. Uwzględnij niskie zachmurzenie.</li>
+<li>Wybranie identyfikatora unikalnej sceny, która reprezentuje stały określony obszar (atrybut <code>grid:code</code>).</li>
+<li>Selekcja niezbędnych kanałów spektralnych do obliczenia wskaźnika spektralnego. Upewnij się, że są ustawione w odpowiedniej kolejności!</li>
+<li>Pozyskanie wszystkich adresów URL do wczytania wylistowanych scen z uwzględnieniem protokołu GDAL <code>/vsicurl/</code>.</li>
+<li>Pogrupowanie scen według ich identyfikatora. W rezultacie powinna zostać stworzona lista, która będzie zawierała unikalne sceny na podstawie daty, a każda scena będzie miała przypisane odpowiednie kanały spektralne. Pamiętaj posortować sceny według daty!</li>
+<li>Określenie mniejszego zasięgu przestrzennego (obiekt klasy <code>SpatExtent</code>) i wykorzystanie go w dalszej analizie. Uprzednio sprawdź, w jakim układzie przestrzennym są sceny.</li>
+<li>Stworzenie rastra czterowymiarowego, w którym trzecim wymiarem są kanały spektralne, a czwartym czas. W tym celu wykorzystaj funkcje <code>sds()</code> oraz <code>lapply()</code>.</li>
+<li>Obliczenie wybranego wskaźnika spektralnego dla każdej daty. Najpierw zdefiniuj funkcję, która posłuży do jego wyliczenia. Następnie, wykorzystaj ją w funkcji <code>lapp()</code>, aby dokonać obliczenia na kanałach w jednym rastrze. Obliczenia należy powtórzyć dla każdego terminu, więc należy wykorzystać również funkcję <code>lapply()</code> na obiekcie klasy <code>SpatRasterDataset</code>. Po tym kroku powinniśmy otrzymać raster trójwymiarowy, gdzie trzecim wymiarem jest czas (nie ma już różnych kanałów, tylko wyliczony wskaźnik).</li>
+<li>Pobranie wartości wskaźnika dla określonych obiektów używając funkcji <code>extract()</code>. Wartości można pobrać dla punktu lub poligonu.</li>
+<li>Stworzenie wykresu liniowego zmienności wskaźnika w czasie. Najlepiej będzie wykorzystać w tym celu bibliotekę <code>ggplot2</code>.</li>
+</ol>
 </section>
 
 </main>
